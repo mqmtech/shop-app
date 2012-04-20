@@ -1,10 +1,11 @@
-web/uploads/
-web/bundles/
-app/bootstrap.php.cache
+web/*
+app/config/parameters.yml
+app/config/config.yml
+app/bootstrap.php*
 app/cache/*
 app/logs/*
 app/config/parameters.yml
 build/
 vendor/
 composer.phar
-/nbproject/private/
+/nbproject
