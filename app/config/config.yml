@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     charset:         UTF-8
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
@@ -15,6 +15,7 @@ framework:
     default_locale:  %locale%
     session:
         auto_start:     true
+        lifetime:       3600
 
 # Twig Configuration
 twig:
@@ -25,7 +26,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:        [MQMShopBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

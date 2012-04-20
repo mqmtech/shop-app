@@ -1,0 +1,35 @@
+{% extends 'TecnokeyShopBundle:Frontend:layout.html.twig' %}
+
+{% block title %}| Tecnokey | Error: {{ status_code }} {{ status_text }} |{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/mqmshop/css/user.css') }}" rel="stylesheet" type="text/css" />
+{% endblock stylesheets %}
+
+{% block menu %}
+        {% include 'TecnokeyShopBundle:Frontend:menu.partialhtml.twig' with {'menu' : 'productos'} %}
+{% endblock %}
+
+{% block contextualThree %}<a href="{{ path('TKShopFrontendIndex') }}">Inicio</a> \ Lista de la compra \
+{% endblock %}
+
+{% block left %}
+    {% render path('TKShopFrontendCategoriesShowAllFamilies', {'_format': 'partialhtml'}) | mqm_shop_to_app_path %}
+{% endblock %}
+
+{% block right_content %}
+
+    {% if status_code == 403 %}
+    <h1>Si ha llegado hasta aquí es porque probablemente su cuenta de usuario aún no esté validada por el staff de Tecnokey</h1>
+    
+    {% else %}
+    <h1>La página que está buscando no es accesible</h1>
+    <h3>Ha ocurrido algo inesperado o ha seguido un enlace equivocado</h3>
+    <a href="{{ path('TKShopFrontendIndex') }}"><h4>Click aquí para volver a Tecno-key</h4></a>
+    {% endif %}
+    
+
+{% endblock right_content %}
+
+

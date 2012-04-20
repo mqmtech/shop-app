@@ -2,14 +2,14 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     localhost
     database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_name:     mqmtech_tecnokey
+    database_user:     mqmtech_root
+    database_password: mqmd3vpass
 
-    mailer_transport:  smtp
-    mailer_host:       localhost
-    mailer_user:       ~
-    mailer_password:   ~
+    mailer_transport:  gmail
+    mailer_host:       smtp.gmail.com
+    mailer_user:       gdeveloperaccount@gmail.com
+    mailer_password:   mqmd3vpass
 
-    locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    locale:            es
+    secret:            578fd8329ff9ecaa6ac4cf60a43c9f712802e033

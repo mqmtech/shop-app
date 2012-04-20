@@ -5,17 +5,31 @@ jms_security_extra:
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\UserInterface: 
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_BASIC_STAFF:       ROLE_USER
+        ROLE_STAFF:       [ROLE_USER, ROLE_BASIC_STAFF]    
+        ROLE_ADMIN:       [ROLE_USER, ROLE_STAFF]                
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, user_db]
         in_memory:
             memory:
                 users:
                     user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    basicstaff: { password: basicstaffpass, roles: [ 'ROLE_BASIC_STAFF' ] }
+                    staff: { password: staffpass, roles: [ 'ROLE_STAFF' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                    superadmin: { password: superadminpass, roles: [ 'ROLE_SUPER_ADMIN' ] }
+        user_db:
+            entity: { class: MQM\UserBundle\Entity\User, property: username }
 
     firewalls:
         dev:
@@ -34,10 +48,32 @@ security:
             logout:
                 path:   /demo/secured/logout
                 target: /demo/
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
+
+        admin_area:
+            pattern: ^/admin
+            anonymous: ~
+            form_login:
+              login_path: /admin/seguridad/login
+              check_path: /admin/seguridad/login_check
+            logout:
+              path:   /admin/seguridad/logout
+              target: /tienda
+
+        shopping_area:
+            pattern: ^/tienda
+            anonymous: ~
+            form_login:
+              login_path: /tienda/seguridad/login
+              check_path: /tienda/seguridad/login_check
+            logout:
+              path:   /tienda/seguridad/logout
+              target: /tienda
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+        - { path: ^/admin/productos/, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/productos/([0-9]+)|(~)/eliminar, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/categorias/$, roles: ROLE_STAFF }
+        - { path: ^/admin/marcas/$, roles: ROLE_STAFF }
+        - { path: ^/admin/$, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/panelControl/$, roles: ROLE_BASIC_STAFF }
+        - { path: ^/tienda/usuario, roles: ROLE_USER }
