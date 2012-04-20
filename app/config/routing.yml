@@ -1,0 +1,15 @@
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal
+
+TKShopStatic:
+    pattern: /site/{page}
+    defaults: {_controller:MQMShopBundle:Default:static}
+    requirements:
+      page:  contacto|empresa|index|productos|politica
+
+MQMShopBundle:
+    resource: "@MQMShopBundle/Controller/"
+    type:     annotation
+    prefix:   /
