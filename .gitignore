@@ -1,4 +1,5 @@
-web/*
+web/uploads/*
+web/bundles/*
 app/config/parameters.yml
 app/bootstrap.php*
 app/cache/*
