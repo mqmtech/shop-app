@@ -57,3 +57,7 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+    
+# MQMPagination Configuration
+mqm_pagination:
+    limit_per_page: 6

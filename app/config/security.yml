@@ -50,7 +50,7 @@ security:
                 target: /demo/
 
         admin_area:
-            pattern: ^/admin
+            pattern: ^/admin|^/developer
             anonymous: ~
             form_login:
               login_path: /admin/seguridad/login
