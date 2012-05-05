@@ -55,3 +55,15 @@
 [submodule "src/MQM/ViewModelBundle"]
 	path = src/MQM/ViewModelBundle
 	url = git@github.com:mqmtech/ViewModelBundle
+[submodule "src/FOS/FacebookBundle"]
+	path = src/FOS/FacebookBundle
+	url = git://github.com/FriendsOfSymfony/FOSFacebookBundle.git
+[submodule "src/facebook"]
+	path = src/facebook
+	url = git://github.com/facebook/facebook-php-sdk.git
+[submodule "src/FOS/TwitterBundle"]
+	path = src/FOS/TwitterBundle
+	url = git://github.com/FriendsOfSymfony/FOSTwitterBundle.git
+[submodule "src/twitteroauth"]
+	path = src/twitteroauth
+	url = git://github.com/kertz/twitteroauth.git

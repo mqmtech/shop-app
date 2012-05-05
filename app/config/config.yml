@@ -61,3 +61,21 @@ swiftmailer:
 # MQMPagination Configuration
 mqm_pagination:
     limit_per_page: 6
+
+# FOSFacebook
+fos_facebook:
+    file:   %kernel.root_dir%/../src/facebook/src/base_facebook.php
+    alias:  mqmshop
+    domain: www.tecnokey.com
+    app_id: 182300511891962
+    secret: 44da2e15ec757cbf9fa6c5e2c4fb25b6
+    cookie: true
+    culture: es_ES
+    permissions: [email, user_birthday, user_location]
+
+# FOSTwitter
+fos_twitter:
+    file: %kernel.root_dir%/../src/twitteroauth/twitteroauth/twitteroauth.php
+    consumer_key: xxxxxx
+    consumer_secret: xxxxxx
+    callback_url: http://www.example.com/login_check
