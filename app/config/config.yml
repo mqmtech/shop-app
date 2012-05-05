@@ -85,7 +85,7 @@ google:
     analytics:
         trackers:
             default:
-                name:      MyJavaScriptCompatibleVariableNameWithNoSpaces
-                accountId: UA-xxxx-x
-                domain:    .mydomain.com
+                name:      Ecommerce_Tecnokey_icer
+                accountId: UA-29696718-1
+                domain:    www.tecno-key.com
                 trackPageLoadTime: true

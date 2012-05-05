@@ -5,6 +5,7 @@ app/bootstrap.php*
 app/cache/*
 app/logs/*
 app/config/parameters.yml
+app/config/config_demo.yml
 build/
 vendor/
 composer.phar
