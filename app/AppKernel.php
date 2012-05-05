@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new MQM\AssetBundle\MQMAssetBundle(),
             new \FOS\FacebookBundle\FOSFacebookBundle(),
             new \FOS\TwitterBundle\FOSTwitterBundle(),
+            new \AntiMattr\GoogleBundle\GoogleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

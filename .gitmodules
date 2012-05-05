@@ -67,3 +67,6 @@
 [submodule "src/twitteroauth"]
 	path = src/twitteroauth
 	url = git://github.com/kertz/twitteroauth.git
+[submodule "src/AntiMattr/GoogleBundle"]
+	path = src/AntiMattr/GoogleBundle
+	url = git@github.com:mqmtech/GoogleBundle.git
