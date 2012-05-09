@@ -1,4 +1,4 @@
-{% extends 'TecnokeyShopBundle:Frontend:layout.html.twig' %}
+{% extends 'MQMShopBundle:Frontend:layout.html.twig' %}
 
 {% block title %}| Tecnokey | Error: {{ status_code }} {{ status_text }} |{% endblock %}
 
@@ -8,7 +8,7 @@
 {% endblock stylesheets %}
 
 {% block menu %}
-        {% include 'TecnokeyShopBundle:Frontend:menu.partialhtml.twig' with {'menu' : 'productos'} %}
+        {% include 'MQMShopBundle:Frontend:menu.partialhtml.twig' with {'menu' : 'productos'} %}
 {% endblock %}
 
 {% block contextualThree %}<a href="{{ path('TKShopFrontendIndex') }}">Inicio</a> \ Lista de la compra \

@@ -3,7 +3,7 @@ parameters:
     database_host:     localhost
     database_port:     ~
     database_name:     symfony_test
-    database_user:     symfony_test
+    database_user:     root
     database_password: 
 
     mailer_transport:  gmail
