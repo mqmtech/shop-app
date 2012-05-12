@@ -70,6 +70,7 @@ security:
               target: /tienda
 
     access_control:
+        - { path: ^/developer, roles: ROLE_SUPER_ADMIN }
         - { path: ^/admin/productos/, roles: ROLE_BASIC_STAFF }
         - { path: ^/admin/productos/([0-9]+)|(~)/eliminar, roles: ROLE_BASIC_STAFF }
         - { path: ^/admin/categorias, roles: ROLE_STAFF }
@@ -77,5 +78,6 @@ security:
         - { path: ^/admin/estadisticas, roles: ROLE_BASIC_STAFF }
         - { path: ^/admin/pedidos, roles: ROLE_BASIC_STAFF }
         - { path: ^/admin/descuentos, roles: ROLE_STAFF }
+        - { path: ^/admin/usuarios, roles: ROLE_STAFF }
         - { path: ^/admin/panelControl/$, roles: ROLE_BASIC_STAFF }
         - { path: ^/tienda/usuario, roles: ROLE_USER }
