@@ -4,12 +4,12 @@ parameters:
     database_port:     ~
     database_name:     symfony_test
     database_user:     root
-    database_password: 
+    database_password:
 
     mailer_transport:  gmail
     mailer_host:       smtp.gmail.com
-    mailer_user:       
-    mailer_password:   
+    mailer_user:       gdeveloperaccount@gmail.com
+    mailer_password:   mqmd3vpass
 
     locale:            es
     secret:            TestPasswordForHackersBeingTested
