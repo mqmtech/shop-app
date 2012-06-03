@@ -67,3 +67,9 @@
 [submodule "src/MQM/NewsLetterBundle"]
 	path = src/MQM/NewsLetterBundle
 	url = git@github.com:mqmtech/NewsLetterBundle.git
+[submodule "src/FOS/FOSFacebookBundle"]
+	path = src/FOS/FOSFacebookBundle
+	url = git@github.com:mqmtech/FOSFacebookBundle.git
+[submodule "src/FOS/FOSTwitterBundle"]
+	path = src/FOS/FOSTwitterBundle
+	url = git@github.com:mqmtech/FOSTwitterBundle.git
