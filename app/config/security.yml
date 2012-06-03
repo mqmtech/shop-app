@@ -76,6 +76,7 @@ security:
         - { path: ^/admin/categorias, roles: ROLE_STAFF }
         - { path: ^/admin/marcas, roles: ROLE_STAFF }
         - { path: ^/admin/estadisticas, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/newsletter, roles: ROLE_BASIC_STAFF }
         - { path: ^/admin/pedidos, roles: ROLE_BASIC_STAFF }
         - { path: ^/admin/descuentos, roles: ROLE_STAFF }
         - { path: ^/admin/usuarios, roles: ROLE_STAFF }

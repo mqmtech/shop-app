@@ -6,10 +6,10 @@ parameters:
     database_user:     root
     database_password: ~
 
-    mailer_transport:  gmail
-    mailer_host:       smtp.gmail.com
+    mailer_transport:  smtp
+    mailer_host:       localhost
     mailer_user:       
     mailer_password:   
 
-    locale:            en
+    locale:            es
     secret:            ThisIsNotSoSecretChangeIt
