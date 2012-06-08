@@ -29,7 +29,8 @@ security:
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
                     superadmin: { password: superadminpass, roles: [ 'ROLE_SUPER_ADMIN' ] }
         user_db:
-            entity: { class: MQM\UserBundle\Entity\User, property: username }
+            entity: { class: MQM\UserBundle\Entity\User} # without property it will use the loadUserByUsername method
+            # entity: { class: MQM\UserBundle\Entity\User, property: username }
 
     firewalls:
         dev:
