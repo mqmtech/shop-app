@@ -18,8 +18,14 @@ if (!isDev() && !in_array(@$_SERVER['REMOTE_ADDR'], array(
 
 function isDev ()
 {
-    $uri = $_SERVER["REQUEST_URI"];
-    return strpos($uri, 'dev=mqmtech') != null;
+    if ($_SESSION['IS_DEV'] == true) {
+        return true;
+    }
+    else {
+        $uri = $_SERVER["REQUEST_URI"];
+        return strpos($uri, 'dev=mqmtech') != null;
+        $_SESSION['IS_DEV'] = true;
+    }
 }
 
 require_once __DIR__.'/../app/bootstrap.php.cache';
