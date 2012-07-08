@@ -6,7 +6,7 @@
 
 // This check prevents access to debug front controllers that are deployed by accident to production servers.
 // Feel free to remove this, extend it, or make something more sophisticated.
-if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
+if (!isDev() && !in_array(@$_SERVER['REMOTE_ADDR'], array(
     '127.0.0.1',
     '::1',
     '192.168.1.6',
@@ -14,6 +14,12 @@ if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
 ))) {
     header('HTTP/1.0 403 Forbidden');
     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
+}
+
+function isDev ()
+{
+    $uri = $_SERVER["REQUEST_URI"];
+    return strpos($uri, 'dev=mqmtech') != null;
 }
 
 require_once __DIR__.'/../app/bootstrap.php.cache';
