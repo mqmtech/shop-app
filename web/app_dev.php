@@ -19,13 +19,13 @@ if (!isDev() && !in_array(@$_SERVER['REMOTE_ADDR'], array(
 function isDev ()
 {
     $uri = $_SERVER["REQUEST_URI"];
-    $isDevByParam = strpos($uri, 'dev=mqmtech') != null;
+    $isDevByParam = (strpos($uri, 'dev=mqmtech') != null);
     if ($isDevByParam) {
-        $_SESSION['IS_DEV'] = $isDevByParam;
+        setcookie('IS_DEV', 'true', time() + 3600);
     }
 
-    if (isset($_SESSION['IS_DEV'])) {
-        return $_SESSION['IS_DEV'];
+    if (isset($_COOKIE['IS_DEV'])) {
+        return $_COOKIE['IS_DEV'] == 'true';
     }
 
     return false;
