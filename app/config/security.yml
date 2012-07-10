@@ -22,12 +22,7 @@ security:
                 providers: [in_memory, user_db]
         in_memory:
             memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    basicstaff: { password: basicstaffpass, roles: [ 'ROLE_BASIC_STAFF' ] }
-                    staff: { password: staffpass, roles: [ 'ROLE_STAFF' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
-                    superadmin: { password: superadminpass, roles: [ 'ROLE_SUPER_ADMIN' ] }
+                users:                    
         user_db:
             entity: { class: MQM\UserBundle\Entity\User} # without property it will use the loadUserByUsername method
             # entity: { class: MQM\UserBundle\Entity\User, property: username }
