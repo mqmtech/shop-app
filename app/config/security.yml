@@ -1,0 +1,80 @@
+jms_security_extra:
+    secure_all_services: false
+    expressions: true
+
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        Symfony\Component\Security\Core\User\UserInterface: 
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
+
+    role_hierarchy:
+        ROLE_BASIC_STAFF:       ROLE_USER
+        ROLE_STAFF:       [ROLE_USER, ROLE_BASIC_STAFF]    
+        ROLE_ADMIN:       [ROLE_USER, ROLE_STAFF]                
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, user_db]
+        in_memory:
+            memory:
+                users:                    
+        user_db:
+            entity: { class: MQM\UserBundle\Entity\User} # without property it will use the loadUserByUsername method
+            # entity: { class: MQM\UserBundle\Entity\User, property: username }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+            pattern:  ^/demo/secured/login$
+            security: false
+
+        secured_area:
+            pattern:    ^/demo/secured/
+            form_login:
+                check_path: /demo/secured/login_check
+                login_path: /demo/secured/login
+            logout:
+                path:   /demo/secured/logout
+                target: /demo/
+
+        admin_area:
+            pattern: ^/admin|^/developer
+            anonymous: ~
+            form_login:
+              login_path: /admin/seguridad/login
+              check_path: /admin/seguridad/login_check
+            logout:
+              path:   /admin/seguridad/logout
+              target: /tienda
+
+        shopping_area:
+            pattern: ^/tienda
+            anonymous: ~
+            form_login:
+              login_path: /tienda/seguridad/login
+              check_path: /tienda/seguridad/login_check
+            logout:
+              path:   /tienda/seguridad/logout
+              target: /tienda
+
+    access_control:
+        - { path: ^/developer, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/productos/, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/productos/([0-9]+)|(~)/eliminar, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/categorias, roles: ROLE_STAFF }
+        - { path: ^/admin/marcas, roles: ROLE_STAFF }
+        - { path: ^/admin/estadisticas, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/newsletter, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/pedidos, roles: ROLE_BASIC_STAFF }
+        - { path: ^/admin/descuentos, roles: ROLE_STAFF }
+        - { path: ^/admin/usuarios, roles: ROLE_STAFF }
+        - { path: ^/admin/panelControl/$, roles: ROLE_BASIC_STAFF }
+        - { path: ^/tienda/usuario, roles: ROLE_USER }
