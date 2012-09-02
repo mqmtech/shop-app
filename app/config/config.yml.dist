@@ -66,9 +66,9 @@ mqm_pagination:
 fos_facebook:
     file:   %kernel.root_dir%/../src/facebook/src/base_facebook.php
     alias:  tecnokey
-    domain: www.tecno-key.com
-    app_id: 348270335236436
-    secret: ee401fdc2f8ea7f6e8dad80b5e60dda0
+    domain: ~
+    app_id: ~
+    secret: ~
     cookie: true
     culture: es_ES
     permissions: [email, user_birthday, user_location]
@@ -76,16 +76,16 @@ fos_facebook:
 # FOSTwitter
 fos_twitter:
     file: %kernel.root_dir%/../src/twitteroauth/twitteroauth/twitteroauth.php
-    consumer_key: A1L3tloBeIvGiXARA0INnQ
-    consumer_secret: 4CqGz5chrHkE4ia79raPdhnuU2UtZBTi2b1YQtNDE
-    callback_url: http://www.tecno-key.com/tienda/login_check
+    consumer_key: ~
+    consumer_secret: ~
+    callback_url: ~
 
 # Google
 google:
     analytics:
         trackers:
             default:
-                name:      Ecommerce_Tecnokey_icer
-                accountId: UA-29696718-1
-                domain:    www.tecno-key.com
+                name:      ~
+                accountId: ~
+                domain:    ~
                 trackPageLoadTime: true
