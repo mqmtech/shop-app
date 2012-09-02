@@ -6,7 +6,6 @@ framework:
     #esi:             ~
     translator:      { fallback: %locale% }
     secret:          %secret%
-    charset:         UTF-8
     router:          { resource: "%kernel.root_dir%/config/routing.yml" }
     form:            true
     csrf_protection: true
@@ -14,7 +13,6 @@ framework:
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
     session:
-        auto_start:     true
         lifetime:       3600
 
 # Twig Configuration
@@ -57,7 +55,7 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:
-      type: file
+      type: memory
       path: "%kernel.root_dir%/cache" #only taken into account if type = file
     
 # MQMPagination Configuration
